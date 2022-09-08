@@ -54,36 +54,43 @@ export default function Test() {
       </div>
       <img className="header-image" src=""/>
       <div className="content">
-        <div>
-          <label htmlFor="brandSelector">Select brand</label>
-          <select id="brandSelector" onChange={(event) => {
-            setBrand(event.currentTarget.value)
-          }}>
-            <option value="Nike">
-              Nike
-            </option>
-            <option value="Rolex">
-              Rolex
-            </option>
-            <option value="Odel">
-              Odel
-            </option>
-          </select>
-
-          <label htmlFor="typeSelector">Select Type</label>
-          <select id="typeSelector" onChange={(event) => {
-            setType(event.currentTarget.value)
-          }}>
-            <option>
-              Nike
-            </option>
-            <option>
-              Rolex
-            </option>
-            <option>
-              Odel
-            </option>
-          </select>
+        <div className="filter">
+          <div>
+            <label className="selector-label" htmlFor="brandSelector">Brand</label>
+            <div className="selector">
+              <select id="brandSelector" onChange={(event) => {
+                setBrand(event.currentTarget.value)
+              }}>
+                <option value="Samsung">
+                  Samsung
+                </option>
+                <option value="Rolex">
+                  Rolex
+                </option>
+                <option value="Nikon">
+                  Nikon
+                </option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label className="selector-label" htmlFor="typeSelector">Type</label>
+            <div className="selector">
+              <select id="typeSelector" onChange={(event) => {
+                setType(event.currentTarget.value)
+              }}>
+                <option value="Phone">
+                 Phone
+                </option>
+                <option value="Camera">
+                  Camera
+                </option>
+                <option value="Watch">
+                  Watch
+                </option>
+              </select>
+            </div>
+          </div>
           <button onClick={callAPI}>
             Search
           </button>

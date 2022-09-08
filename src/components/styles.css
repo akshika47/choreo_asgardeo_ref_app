@@ -28,7 +28,8 @@
     width: 100%;
     border-radius: 0.75rem 0.75rem 0 0;
 }
-.product .details{
+
+.product .details {
     padding: 0.8rem 0.8rem 3rem;
     display: flex;
 }
@@ -68,17 +69,48 @@
     top: 30%;
 }
 
-.hero-image .hero-text .sub-title  {
+.hero-image .hero-text .sub-title {
     font-size: 1.25rem;
 }
 
-.hero-image .hero-text .title{
+.hero-image .hero-text .title {
     font-size: 6rem;
     padding-bottom: 28px;
     width: 708px;
     font-family: "Roboto Slab", sans-serif;
 }
 
-.hero-image .hero-text .icon{
+.hero-image .hero-text .icon {
     vertical-align: bottom;
+}
+
+.filter {
+    display: flex;
+    align-items: flex-end;
+    column-gap: 10px;
+}
+
+.selector {
+    border: 1px solid #ccc;
+    width: 120px;
+    border-radius: 3px;
+    overflow: hidden;
+    background: #fafafa url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e") no-repeat 90% 50%;
+}
+
+.selector select {
+    padding: 5px 8px;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background: transparent none;
+    -webkit-appearance: none;
+}
+
+.selector select:focus {
+    outline: none;
+}
+
+.filter button{
+    height: 28px;
 }
