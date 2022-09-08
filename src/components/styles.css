@@ -1,8 +1,21 @@
-.products {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
+.products-page {
+    max-width: 1024px;
+    margin: auto auto;
 }
 
+.products {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 60px;
+}
+
+.product {
+    /*margin: ;*/
+}
+
+.product img {
+    width: 100%;
+}
 .product .details{
     display: flex;
 }
