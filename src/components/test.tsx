@@ -61,6 +61,9 @@ export default function Test() {
               <select id="brandSelector" onChange={(event) => {
                 setBrand(event.currentTarget.value)
               }}>
+                <option value="">
+                  Empty
+                </option>
                 <option value="Samsung">
                   Samsung
                 </option>
@@ -79,6 +82,9 @@ export default function Test() {
               <select id="typeSelector" onChange={(event) => {
                 setType(event.currentTarget.value)
               }}>
+                <option value="">
+                  Empty
+                </option>
                 <option value="Phone">
                  Phone
                 </option>
