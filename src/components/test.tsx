@@ -8,7 +8,15 @@ interface Product {
   Name: string;
   ImageURL: string;
   Price: number;
+  count: number;
 }
+
+class BasketItem {
+  ItemId: number;
+  Count: number;
+}
+
+
 
 export default function Test() {
 
@@ -16,6 +24,8 @@ export default function Test() {
   const [brand, setBrand] = useState('')
   const [type, setType] = useState('')
 
+  const personInstance = new BasketItem();
+  
   const {
     httpRequest,
     getAccessToken
@@ -106,10 +116,14 @@ export default function Test() {
             products.map((product) => (
               <div key={product.ItemId} className="product">
                 <img
-                  src="https://demo.nopcommerce.com/images/thumbs/0000041_htc-one-m8-android-l-50-lollipop_415.jpeg"/>
+                  //src="https://demo.nopcommerce.com/images/thumbs/0000041_htc-one-m8-android-l-50-lollipop_415.jpeg"
+                    src={product.ImageURL}/>
                 <div className="details">
                   <span className="name">{product.Name}</span>
                   <span className="price">$ {product.Price.toFixed(2)}</span>
+                </div>
+                <div className="details">
+                  <span className="count">Items available: {product.count}</span>
                 </div>
               </div>
             ))
