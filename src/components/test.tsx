@@ -16,7 +16,25 @@ class BasketItem {
   Count: number;
 }
 
+var sampleBasket = [
+  {
+    "ItemId": 1,
+    "Quantity": 3
+  },
+  {
+    "ItemId": 2,
+    "Quantity": 3
+  },
+  {
+    "ItemId": 3,
+    "Quantity": 4
+  }
+];
 
+
+function sayHello() {
+  alert('You clicked me!');
+}
 
 export default function Test() {
 
@@ -48,6 +66,21 @@ export default function Test() {
     };
     const {data} = await httpRequest(requestConfig);
     setProducts(data);
+  }
+
+  const purchaseBasket = async () =>{
+    const requestConfig: HttpRequestConfig = {
+    headers: {
+      "Accept": "application/json",
+          "Content-Type": "application/json",
+          'X-Authorization': await getAccessToken()
+    },
+    method: "POST",
+      url: `https://4f20c266-2aad-4d3e-ba1c-390cffe76423-prod.e1-us-east-azure.choreoapis.dev/ygtb/storage-service/1.0.0/purchaseBasket`,
+      data: JSON.stringify(sampleBasket)
+
+    };
+  console.log(await httpRequest(requestConfig));
   }
 
   return (
@@ -111,6 +144,9 @@ export default function Test() {
             Search
           </button>
         </div>
+        <div className="details">
+          <button onClick={purchaseBasket}>Purchase Basket</button>
+        </div>
         <div className="products">
           {
             products.map((product) => (
@@ -125,6 +161,11 @@ export default function Test() {
                 <div className="details">
                   <span className="count">Items available: {product.count}</span>
                 </div>
+
+                <div className="details">
+                  <button onClick={sayHello}>Buy Item</button>
+                </div>
+
               </div>
             ))
           }
