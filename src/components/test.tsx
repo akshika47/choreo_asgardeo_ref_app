@@ -4,14 +4,14 @@ import './styles.css';
 import {HttpRequestConfig} from "@asgardeo/auth-spa/src/models/http-client";
 
 interface Product {
-  ItemId: string;
+  ItemId: number;
   Name: string;
   ImageURL: string;
   Price: number;
   count: number;
 }
 
-class BasketItem {
+interface BasketItem {
   ItemId: number;
   Count: number;
 }
@@ -32,8 +32,11 @@ var sampleBasket = [
 ];
 
 
-function sayHello() {
-  alert('You clicked me!');
+function addItemToBasket(ItemId: number) {
+  const tempBasketItem = localStorage.getItem("basket");
+  const basketItems: BasketItem[] = tempBasketItem ? JSON.parse(tempBasketItem) as BasketItem[] : [];
+  localStorage.setItem("basket", JSON.stringify([...basketItems, {ItemId, Quantity:1}]));
+  alert('Added to Basket');
 }
 
 export default function Test() {
@@ -42,7 +45,7 @@ export default function Test() {
   const [brand, setBrand] = useState('')
   const [type, setType] = useState('')
 
-  const personInstance = new BasketItem();
+  //const personInstance = new BasketItem();
   
   const {
     httpRequest,
@@ -77,8 +80,7 @@ export default function Test() {
     },
     method: "POST",
       url: `https://4f20c266-2aad-4d3e-ba1c-390cffe76423-prod.e1-us-east-azure.choreoapis.dev/ygtb/storage-service/1.0.0/purchaseBasket`,
-      data: JSON.stringify(sampleBasket)
-
+      data: localStorage.getItem("basket") || "[]"
     };
   console.log(await httpRequest(requestConfig));
   }
@@ -151,9 +153,7 @@ export default function Test() {
           {
             products.map((product) => (
               <div key={product.ItemId} className="product">
-                <img
-                  //src="https://demo.nopcommerce.com/images/thumbs/0000041_htc-one-m8-android-l-50-lollipop_415.jpeg"
-                    src={product.ImageURL}/>
+                <img src={product.ImageURL}/>
                 <div className="details">
                   <span className="name">{product.Name}</span>
                   <span className="price">$ {product.Price.toFixed(2)}</span>
@@ -163,7 +163,8 @@ export default function Test() {
                 </div>
 
                 <div className="details">
-                  <button onClick={sayHello}>Buy Item</button>
+                  <button onClick= {()=>{addItemToBasket(product.ItemId)}}> Buy Item</button>
+
                 </div>
 
               </div>
