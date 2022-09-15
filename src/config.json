@@ -1,0 +1,21 @@
+{
+  "clientID": "5rHuJUqTFJfJ5qKgcAX7PQIIpTMa",
+  "storage": "sessionStorage",
+  "baseUrl": "https://api.asgardeo.io/t/akshika",
+  "signInRedirectURL": "https://localhost:3000/test",
+  "signOutRedirectURL": "https://localhost:3000",
+  "scope": [
+    "openid",
+    "profile"
+  ],
+  "resourceServerURLs": "https://4f20c266-2aad-4d3e-ba1c-390cffe76423-prod.e1-us-east-azure.choreoapis.dev",
+  "stsConfig": {
+    "client_id": "9k0HOUyi5JtIF72hScf7bo7Y7C8a",
+    "scope": [
+      "openid",
+      "profile"
+    ]
+  },
+  "orgHandle": "shirokulatilake",
+  "stsTokenEndpoint": "https://sts.choreo.dev/oauth2/token"
+}

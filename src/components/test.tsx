@@ -1,9 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {useAuthContext} from "@asgardeo/auth-react";
 import './styles.css';
-import {HttpRequestConfig} from "@asgardeo/auth-spa/src/models/http-client";
-import {Route, Switch} from "react-router-dom";
-import {HomePage, NotFoundPage} from "../pages";
 import Products from "./products";
 import Orders from "./orders";
 
@@ -17,6 +13,10 @@ export interface Product {
 
 export interface BasketItem {
   ItemId: number;
+  Count: number;
+}
+
+export interface OrderItem extends Product {
   Count: number;
 }
 
@@ -34,7 +34,7 @@ function getBasket() {
 
 
 export default function Test() {
-  const [currentPage, setCurrentPage] = useState<'PRODUCTS' | 'ORDERS'>('PRODUCTS');
+  const [currentPage, setCurrentPage] = useState<'PRODUCTS' | 'ORDERS'>('ORDERS');
 
   return (
     <div className="products-page">
