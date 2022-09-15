@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff2b992d-9658-42b9-a399-0de9fdace728" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/products.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/orders.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/orders.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/test.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
