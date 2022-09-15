@@ -112,6 +112,10 @@
     outline: none;
 }
 
-.filter button{
+button{
     height: 28px;
+}
+
+.navigation {
+    margin-bottom: 50px;
 }

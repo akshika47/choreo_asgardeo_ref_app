@@ -26,7 +26,6 @@ import { default as authConfig } from "./config.json";
 import { ErrorBoundary } from "./error-boundary";
 import { HomePage, NotFoundPage } from "./pages";
 import Test from "./components/test";
-import Orders from "./components/orders";
 
 const AppContent: FunctionComponent = (): ReactElement => {
     const { error } = useAuthContext();
@@ -36,8 +35,7 @@ const AppContent: FunctionComponent = (): ReactElement => {
             <Router>
             <Switch>
                 <Route exact path="/" component={HomePage} />
-                <Route exact path= "/orders" componenet={Orders}/>
-                <Route exact path= "/test" component={Test}/>
+                <Route path= "/test" component={Test}/>
                 <Route component={NotFoundPage} />
             </Switch>
         </Router>
