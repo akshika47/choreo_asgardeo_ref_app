@@ -16,36 +16,32 @@ interface BasketItem {
   Count: number;
 }
 
-var sampleBasket = [
-  {
-    "ItemId": 1,
-    "Quantity": 3
-  },
-  {
-    "ItemId": 2,
-    "Quantity": 3
-  },
-  {
-    "ItemId": 3,
-    "Quantity": 4
-  }
-];
-
 
 function addItemToBasket(ItemId: number) {
   const tempBasketItem = localStorage.getItem("basket");
   const basketItems: BasketItem[] = tempBasketItem ? JSON.parse(tempBasketItem) as BasketItem[] : [];
   localStorage.setItem("basket", JSON.stringify([...basketItems, {ItemId, Quantity:1}]));
-  alert('Added to Basket');
+  console.log('Added to Basket');
 }
+
+function getBasket(){
+  const tempBasketItem = localStorage.getItem("basket");
+  const itemIds = [];
+  if ( tempBasketItem ){
+    return tempBasketItem;
+  }
+  else {
+    return "";
+  }
+
+}
+
 
 export default function Test() {
 
   const [products, setProducts] = useState<Product[]>([])
   const [brand, setBrand] = useState('')
   const [type, setType] = useState('')
-
-  //const personInstance = new BasketItem();
   
   const {
     httpRequest,
@@ -71,6 +67,20 @@ export default function Test() {
     setProducts(data);
   }
 
+  const getOrders = async () => {
+    const requestConfig: HttpRequestConfig = {
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        'X-Authorization': await getAccessToken()
+      },
+      method: "GET",
+      url: `https://4f20c266-2aad-4d3e-ba1c-390cffe76423-prod.e1-us-east-azure.choreoapis.dev/ygtb/storage-service/1.0.0/getPastOrders`
+    };
+    const orders = await httpRequest(requestConfig);
+    console.log(orders);
+  }
+
   const purchaseBasket = async () =>{
     const requestConfig: HttpRequestConfig = {
     headers: {
@@ -92,8 +102,8 @@ export default function Test() {
       >
         <div className="container">
           <div className="hero-text">
-            <div className="title">My store</div>
-            <div className="sub-title">Lorem Ipsum dollar</div>
+            <div className="title">30 කඩේ </div>
+            <div className="sub-title">All your needs at one shop</div>
           </div>
         </div>
       </div>
@@ -145,10 +155,12 @@ export default function Test() {
           <button onClick={callAPI}>
             Search
           </button>
-        </div>
-        <div className="details">
+          {' '}
           <button onClick={purchaseBasket}>Purchase Basket</button>
+          <button onClick={getOrders}> Get the Past Orders</button>
+          {' '}
         </div>
+
         <div className="products">
           {
             products.map((product) => (
@@ -161,12 +173,9 @@ export default function Test() {
                 <div className="details">
                   <span className="count">Items available: {product.count}</span>
                 </div>
-
                 <div className="details">
                   <button onClick= {()=>{addItemToBasket(product.ItemId)}}> Buy Item</button>
-
                 </div>
-
               </div>
             ))
           }
